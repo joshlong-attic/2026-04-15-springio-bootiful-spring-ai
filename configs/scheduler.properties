@@ -1,0 +1,8 @@
+spring.application.name=scheduler
+spring.ai.mcp.server.protocol=streamable
+server.port=8081
+spring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:9090
+spring.threads.virtual.enabled=true
+
+
+tool.description = schedule an appointment to pick up or adopt a dog from a Pooch Palace location
