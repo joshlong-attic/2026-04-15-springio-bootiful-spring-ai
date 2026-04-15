@@ -10,6 +10,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
+import static org.springaicommunity.mcp.security.authorizationserver.config.McpAuthorizationServerConfigurer.mcpAuthorizationServer;
+
 @SpringBootApplication
 public class AuthzApplication {
 
@@ -22,12 +24,15 @@ public class AuthzApplication {
         return new JdbcUserDetailsManager(dataSource);
     }
 
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
-//        return httpSecurity
-//                .authorizeHttpRequests(a -> a.anyRequest().authenticated())
-//                .formLogin(Customizer.withDefaults())
-//                .httpBasic(Customizer.withDefaults())
-//                .build();
-//    }
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
+        return httpSecurity
+                .authorizeHttpRequests(a -> a.anyRequest().authenticated())
+                .formLogin(Customizer.withDefaults())
+                .with(mcpAuthorizationServer(),
+                        a -> a
+                                .authorizationServer(as ->
+                                        as.oidc(Customizer.withDefaults())))
+                .build();
+    }
 }

@@ -23,7 +23,7 @@ spring:
                 - "refresh_token"
                 - "urn:ietf:params:oauth:grant-type:device_code"
               redirect-uris:
-                - "http://127.0.0.1:8080/login/oauth2/code/spring"
+                - "http://127.0.0.1:8081/login/oauth2/code/spring"
               scopes:
                 - "openid"
                 - "profile"
@@ -31,4 +31,4 @@ spring:
   application:
     name: auth
 server:
-  port: 7070
+  port: 9090

@@ -1,10 +1,10 @@
-package com.example.agent;
+package com.example.doghouse;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AgentApplicationTests {
+class DoghouseApplicationTests {
 
 	@Test
 	void contextLoads() {
